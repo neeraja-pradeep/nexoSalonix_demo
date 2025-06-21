@@ -63,7 +63,7 @@ class _SliderScreenState extends ConsumerState<SliderScreen> {
   }
 
   Widget _buildActionButton(BuildContext context) {
-    final buttonHeight = Responsive.screenHeight(context) * 0.06;
+    final buttonHeight = Responsive.screenHeight(context) * 0.047;
     return Container(
       width: double.infinity,
       height: buttonHeight,
@@ -131,8 +131,8 @@ class _SliderScreenState extends ConsumerState<SliderScreen> {
                   _slideTexts[_currentPage],
                   textAlign: TextAlign.center,
                   maxLines: 3,
-                  minFontSize: (screenHeight * 0.035 * textScale).roundToDouble(),
-                  maxFontSize: (screenHeight * 0.06 * textScale).roundToDouble(),
+                  minFontSize: (screenHeight * 0.039 * textScale).roundToDouble(),
+                  maxFontSize: (screenHeight * 0.07 * textScale).roundToDouble(),
                                     stepGranularity: 0.1,
                   style: Theme.of(context).textTheme.headlineSmall!.copyWith(
                         fontWeight: FontWeight.w600,
@@ -145,13 +145,13 @@ class _SliderScreenState extends ConsumerState<SliderScreen> {
                 _buildDotIndicator(),
             
                 SizedBox(
-                  height: screenHeight  * 0.07,
+                  height: screenHeight  * 0.06,
                 ), // spacing between dots and button
                 Padding(
-                  padding:  EdgeInsets.symmetric(horizontal: screenWidth * .07),
+                  padding:  EdgeInsets.symmetric(horizontal: screenWidth * .09),
                   child: _buildActionButton(context),
                 ),
-                 SizedBox(height: Responsive.screenHeight(context) * 0.03,), // bottom padding
+                 SizedBox(height: Responsive.screenHeight(context) * 0.01,), // bottom padding
               ],
             ),
           ),
