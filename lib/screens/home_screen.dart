@@ -26,7 +26,7 @@ class HomeScreen extends ConsumerWidget {
               backgroundColor: const Color(0xFFF9F7F7),
               pinned: true,
               elevation: 0,
-              toolbarHeight: screenHeight * 0.085,
+              toolbarHeight: screenHeight * 0.075,
               flexibleSpace: const LocationHeader(),
             ),
             SliverAppBar(
@@ -37,15 +37,15 @@ class HomeScreen extends ConsumerWidget {
               toolbarHeight: screenHeight * 0.085,
               flexibleSpace: custom_widgets.SearchBar(),
             ),
-            SliverToBoxAdapter(
+             SliverToBoxAdapter(
               child: Padding(
                 padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.045),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    SizedBox(height: screenHeight * 0.03),
+                    SizedBox(height: screenHeight * 0.025),
                     SectionHeader(title: "Near You"),
-                    SizedBox(height: screenHeight * 0.024),
+                    SizedBox(height: screenHeight * 0.035),
                     HorizontalCardList(),
                     SizedBox(height: screenHeight * 0.035),
                     SectionHeader(title: "Most Visited"),
