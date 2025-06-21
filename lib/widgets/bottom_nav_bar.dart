@@ -8,7 +8,7 @@ class CustomBottomNavBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final media = MediaQuery.of(context);
-
+    final double navSpacing = media.size.width * 0.27;   // amount of horizontal gap
     final double barHeight = media.size.height * 0.09;
     final EdgeInsets padding =
         EdgeInsets.symmetric(horizontal: media.size.width * 0.06);
@@ -39,6 +39,7 @@ class CustomBottomNavBar extends StatelessWidget {
                 unselectedFontSize: unselectedFontSize,
               ),
             ),
+            SizedBox(width: navSpacing), 
             Expanded(
               child: _buildNavItem(
                 context,
@@ -49,6 +50,7 @@ class CustomBottomNavBar extends StatelessWidget {
                 unselectedFontSize: unselectedFontSize,
               ),
             ),
+             SizedBox(width: navSpacing),
             Expanded(
               child: _buildNavItem(
                 context,
