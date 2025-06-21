@@ -135,7 +135,12 @@ class _SliderScreenState extends ConsumerState<SliderScreen> {
                   textAlign: TextAlign.center,
                   maxLines: 3,
                   minFontSize: (screenHeight * 0.035 * textScale).roundToDouble(),
+
                   maxFontSize: screenHeight * 0.06 * textScale,
+
+         
+                  stepGranularity: 0.1,
+
                   style: TextStyle(
                     color: const Color(0xFF112D4E),
                     fontFamily: 'Poppins',
