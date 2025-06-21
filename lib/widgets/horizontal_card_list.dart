@@ -9,9 +9,12 @@ class HorizontalCardList extends StatelessWidget {
     final screenWidth = MediaQuery.of(context).size.width;
     final cardWidth = screenWidth * 0.55;
     final imageSize = cardWidth;
+    final cardHeight = cardWidth + screenWidth * 0.15;
+    final spacing = screenWidth * 0.03;
+    final smallPadding = screenWidth * 0.02;
 
     return SizedBox(
-      height: cardWidth + 55,
+      height: cardHeight,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         itemCount: 6,
@@ -34,22 +37,22 @@ class HorizontalCardList extends StatelessWidget {
                       ),
                     ),
                     Positioned(
-                      bottom: 8,
-                      right: 8,
+                      bottom: smallPadding,
+                      right: smallPadding,
                       child: Container(
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: 8,
-                          vertical: 4,
+                        padding: EdgeInsets.symmetric(
+                          horizontal: smallPadding,
+                          vertical: smallPadding / 2,
                         ),
                         decoration: BoxDecoration(
                           color: const Color(0xFF3F72AF),
                           borderRadius: BorderRadius.circular(14),
                         ),
-                        child: const Text(
+                        child: Text(
                           "1.2km",
                           style: TextStyle(
                             color: Colors.white,
-                            fontSize: 12,
+                            fontSize: Responsive.fontSize(context, 0.1),
                             fontFamily: 'Poppins',
                           ),
                         ),
@@ -57,7 +60,7 @@ class HorizontalCardList extends StatelessWidget {
                     ),
                   ],
                 ),
-                const SizedBox(height: 10),
+                SizedBox(height: spacing),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -65,18 +68,22 @@ class HorizontalCardList extends StatelessWidget {
                       "Shop Name",
                       style: TextStyle(
                         fontWeight: FontWeight.w600,
-                        fontSize: 15,
+                        fontSize: Responsive.fontSize(context, 0.125),
                         fontFamily: 'Poppins',
                         color: Color(0xFF112D4E),
                       ),
                     ),
                     Row(
-                      children: const [
-                        Icon(Icons.star, color: Colors.amber, size: 16),
+                      children: [
+                        Icon(
+                          Icons.star,
+                          color: Colors.amber,
+                          size: Responsive.fontSize(context, 0.133),
+                        ),
                         Text(
                           "4.5",
                           style: TextStyle(
-                            fontSize: 13,
+                            fontSize: Responsive.fontSize(context, 0.11),
                             fontWeight: FontWeight.w500,
                             color: Color(0xFF112D4E),
                             fontFamily: 'Poppins',
@@ -87,10 +94,10 @@ class HorizontalCardList extends StatelessWidget {
                   ],
                 ),
               
-                const Text(
+                Text(
                   "Address",
                   style: TextStyle(
-                    fontSize: 13,
+                    fontSize: Responsive.fontSize(context, 0.11),
                     fontWeight: FontWeight.w500,
                     color: Color(0xFF112D4E),
                     fontFamily: 'Poppins',
