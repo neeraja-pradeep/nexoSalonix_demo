@@ -30,7 +30,7 @@ class HomeScreen extends ConsumerWidget {
               toolbarHeight: screenHeight * 0.085,
               flexibleSpace: custom_widgets.SearchBar(),
             ),
-            const SliverToBoxAdapter(
+            SliverToBoxAdapter(
               child: Padding(
                 padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.045),
                 child: Column(
