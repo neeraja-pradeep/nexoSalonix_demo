@@ -26,15 +26,17 @@ class _SplashScreenState extends ConsumerState<SplashScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xFFF9F7F7),
-      body: Center(
-        child: Text(
-          'salonix',
-          style: TextStyle(
-            color: const Color(0xFF112D4E),
-            fontSize: Responsive.screenHeight(context) * 0.07,
-            fontStyle: FontStyle.italic,
-            fontFamily: 'Poppins',
-            fontWeight: FontWeight.w700,
+      body: SafeArea(
+        child: Center(
+          child: Text(
+            'salonix',
+            style: TextStyle(
+              color: const Color(0xFF112D4E),
+              fontSize: Responsive.screenHeight(context) * 0.07,
+              fontStyle: FontStyle.italic,
+              fontFamily: 'Poppins',
+              fontWeight: FontWeight.w700,
+            ),
           ),
         ),
       ),

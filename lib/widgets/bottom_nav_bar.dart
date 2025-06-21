@@ -6,48 +6,55 @@ class CustomBottomNavBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final screenWidth = MediaQuery.of(context).size.width;
-    final screenHeight = MediaQuery.of(context).size.height;
+    final media = MediaQuery.of(context);
 
-    final double selectedFontSize = 10;
-    //((screenWidth + screenHeight) * 0.01).clamp(14.0, 18.0);
-    final double unselectedFontSize = 10;
-     //(selectedFontSize * 0.9).clamp(12.0, 16.0);
+    final double barHeight = media.size.height * 0.09;
+    final EdgeInsets padding =
+        EdgeInsets.symmetric(horizontal: media.size.width * 0.06);
+
+    final baseFontSize =
+        Theme.of(context).textTheme.labelSmall?.fontSize ?? 10;
+    final double selectedFontSize =
+        baseFontSize * media.textScaleFactor;
+    final double unselectedFontSize =
+        baseFontSize * media.textScaleFactor;
 
     return Container(
-      height: 70,
+      height: barHeight,
       color: const Color(0xFFF9F7F7),
-      padding: const EdgeInsets.symmetric(
-        horizontal: 24,
-      ), // Increase/decrease this
+      padding: padding,
       child: Center(
         child: Row(
-          mainAxisAlignment:
-              MainAxisAlignment.spaceBetween, // spacing between items
           children: [
-            _buildNavItem(
-              context,
-              icon: Icons.home,
-              label: 'home',
-              isSelected: true,
-              selectedFontSize: selectedFontSize,
-              unselectedFontSize: unselectedFontSize,
+            Expanded(
+              child: _buildNavItem(
+                context,
+                icon: Icons.home,
+                label: 'home',
+                isSelected: true,
+                selectedFontSize: selectedFontSize,
+                unselectedFontSize: unselectedFontSize,
+              ),
             ),
-            _buildNavItem(
-              context,
-              icon: Icons.search,
-              label: 'search',
-              isSelected: false,
-              selectedFontSize: selectedFontSize,
-              unselectedFontSize: unselectedFontSize,
+            Expanded(
+              child: _buildNavItem(
+                context,
+                icon: Icons.search,
+                label: 'search',
+                isSelected: false,
+                selectedFontSize: selectedFontSize,
+                unselectedFontSize: unselectedFontSize,
+              ),
             ),
-            _buildNavItem(
-              context,
-              icon: LucideIcons.userCircle2,
-              label: 'profile',
-              isSelected: false,
-              selectedFontSize: selectedFontSize,
-              unselectedFontSize: unselectedFontSize,
+            Expanded(
+              child: _buildNavItem(
+                context,
+                icon: LucideIcons.userCircle2,
+                label: 'profile',
+                isSelected: false,
+                selectedFontSize: selectedFontSize,
+                unselectedFontSize: unselectedFontSize,
+              ),
             ),
           ],
         ),
@@ -73,14 +80,14 @@ class CustomBottomNavBar extends StatelessWidget {
         ),
         Text(
           label,
-          style: TextStyle(
-            fontFamily: 'Poppins',
-            fontSize: isSelected ? selectedFontSize : unselectedFontSize,
-            color: isSelected
-                ? const Color(0xFF3F72AF)
-                : const Color(0xFF9E9E9E),
-            fontWeight: FontWeight.w500,
-          ),
+          style: Theme.of(context).textTheme.labelSmall?.copyWith(
+                fontSize:
+                    isSelected ? selectedFontSize : unselectedFontSize,
+                color: isSelected
+                    ? const Color(0xFF3F72AF)
+                    : const Color(0xFF9E9E9E),
+                fontWeight: FontWeight.w500,
+              ),
         ),
       ],
     );
