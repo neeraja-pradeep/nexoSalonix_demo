@@ -31,16 +31,14 @@ class _SplashScreenState extends ConsumerState<SplashScreen> {
         child: Center(
           child: Text(
             'salonix',
-            style: TextStyle(
-              color: const Color(0xFF112D4E),
-              fontSize: Responsive.screenHeight(context) * 0.07,
-              fontStyle: FontStyle.italic,
-              fontFamily: 'Poppins',
-              fontWeight: FontWeight.w700,
-            ),
+            style: Theme.of(context).textTheme.headlineSmall!.copyWith(
+                  fontSize: Responsive.screenHeight(context) * 0.07,
+                  fontStyle: FontStyle.italic,
+                ),
           ),
         ),
       ),
     );
   }
 }
+
