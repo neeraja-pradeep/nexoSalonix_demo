@@ -132,7 +132,7 @@ class _SliderScreenState extends ConsumerState<SliderScreen> {
                   _slideTexts[_currentPage],
                   textAlign: TextAlign.center,
                   maxLines: 3,
-                  minFontSize: screenHeight * 0.035 * textScale,
+                  minFontSize: (screenHeight * 0.035 * textScale).roundToDouble(),
                   maxFontSize: screenHeight * 0.06 * textScale,
                   stepGranularity: 0.1,
                   style: TextStyle(
