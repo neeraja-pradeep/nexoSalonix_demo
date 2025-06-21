@@ -22,21 +22,21 @@ class MyApp extends StatelessWidget {
       ),
       textTheme: TextTheme(
         headlineSmall: TextStyle(
-          fontSize: Responsive.fontSize(context, 0.21),
+          fontSize: Responsive.fontSize(context, 0.18),
           fontWeight: FontWeight.w700,
           color: const Color(0xFF112D4E),
         ),
         titleMedium: TextStyle(
-          fontSize: Responsive.fontSize(context, 0.13),
+          fontSize: Responsive.fontSize(context, 0.08),
           fontWeight: FontWeight.w600,
           color: const Color(0xFF112D4E),
         ),
         bodyMedium: TextStyle(
-          fontSize: Responsive.fontSize(context, 0.12),
+          fontSize: Responsive.fontSize(context, 0.10),
           color: const Color(0xFF112D4E),
         ),
         labelSmall: TextStyle(
-          fontSize: Responsive.fontSize(context, 0.077),
+          fontSize: Responsive.fontSize(context, 0.073),
         ),
       ),
     );
@@ -48,4 +48,5 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+
 
