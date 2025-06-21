@@ -78,8 +78,8 @@ class _SliderScreenState extends ConsumerState<SliderScreen> {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(40),
           ),
-          textStyle: const TextStyle(
-            fontSize: 18,
+          textStyle:  TextStyle(
+            fontSize: Responsive.fontSize(context, 0.12),
             fontWeight: FontWeight.w600,
             fontFamily: 'Poppins',
           ),
@@ -94,11 +94,10 @@ class _SliderScreenState extends ConsumerState<SliderScreen> {
   @override
   Widget build(BuildContext context) {
     final mediaQuery = MediaQuery.of(context);
-    final screenHeight =
-        Responsive.screenHeight(context) - mediaQuery.padding.vertical;
+    final screenHeight = Responsive.screenHeight(context) - mediaQuery.padding.vertical;
     final screenWidth = Responsive.screenWidth(context);
     final textScale = mediaQuery.textScaleFactor;
-
+    
     return Scaffold(
       backgroundColor: const Color(0xFFF9F7F7),
       body: SafeArea(
@@ -129,18 +128,14 @@ class _SliderScreenState extends ConsumerState<SliderScreen> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                const SizedBox(height: 40),
+                SizedBox(height: Responsive.screenHeight(context) * 0.05),
                 AutoSizeText(
                   _slideTexts[_currentPage],
                   textAlign: TextAlign.center,
                   maxLines: 3,
                   minFontSize: (screenHeight * 0.035 * textScale).roundToDouble(),
-
-                  maxFontSize: screenHeight * 0.06 * textScale,
-
-         
-                  stepGranularity: 0.1,
-
+                  maxFontSize: (screenHeight * 0.06 * textScale).roundToDouble(),
+                  stepGranularity: 0.1,   
                   style: TextStyle(
                     color: const Color(0xFF112D4E),
                     fontFamily: 'Poppins',
@@ -148,19 +143,19 @@ class _SliderScreenState extends ConsumerState<SliderScreen> {
                   ),
                 ),
             
-                const SizedBox(
-                  height: 5,
+                 SizedBox(
+                  height: Responsive.screenHeight(context) * 0.006,
                 ), // 🔥 reduced spacing between text and dots
                 _buildDotIndicator(),
             
                 SizedBox(
-                  height: screenHeight * 0.07,
+                  height: screenHeight  * 0.07,
                 ), // spacing between dots and button
                 Padding(
                   padding:  EdgeInsets.symmetric(horizontal: screenWidth * .07),
                   child: _buildActionButton(context),
                 ),
-                const SizedBox(height: 24), // bottom padding
+                 SizedBox(height: Responsive.screenHeight(context) * 0.03,), // bottom padding
               ],
             ),
           ),
