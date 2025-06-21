@@ -21,7 +21,14 @@ class HomeScreen extends ConsumerWidget {
       body: SafeArea(
         child: CustomScrollView(
           slivers: [
-            const SliverToBoxAdapter(child: LocationHeader()),
+            SliverAppBar(
+              automaticallyImplyLeading: false,
+              backgroundColor: const Color(0xFFF9F7F7),
+              pinned: true,
+              elevation: 0,
+              toolbarHeight: screenHeight * 0.085,
+              flexibleSpace: const LocationHeader(),
+            ),
             SliverAppBar(
               automaticallyImplyLeading: false,
               backgroundColor: const Color(0xFFF9F7F7),
