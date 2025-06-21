@@ -19,16 +19,18 @@ class CustomBottomNavBar extends StatelessWidget {
     final double unselectedFontSize =
         baseFontSize * media.textScaleFactor;
 
-    return Container(
-      height: barHeight,
-      color: const Color(0xFFF9F7F7),
-      padding: padding,
-      child: Center(
-        child: Row(
-          children: [
-            Expanded(
-              child: _buildNavItem(
-                context,
+    return SafeArea(
+      top: false,
+      child: Container(
+        height: barHeight,
+        color: const Color(0xFFF9F7F7),
+        padding: padding,
+        child: Center(
+          child: Row(
+            children: [
+              Expanded(
+                child: _buildNavItem(
+                  context,
                 icon: Icons.home,
                 label: 'home',
                 isSelected: true,
