@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lucide_icons/lucide_icons.dart';
+import '../consts.dart';
 
 class CustomBottomNavBar extends StatelessWidget {
   const CustomBottomNavBar({super.key});
@@ -61,6 +62,8 @@ class CustomBottomNavBar extends StatelessWidget {
           ],
         ),
       ),
+
+      ),
     );
   }
 
@@ -78,7 +81,7 @@ class CustomBottomNavBar extends StatelessWidget {
         Icon(
           icon,
           color: isSelected ? const Color(0xFF3F72AF) : const Color(0xFF9E9E9E),
-          size: 22,
+          size: Responsive.iconSize(context),
         ),
         Text(
           label,
@@ -95,3 +98,4 @@ class CustomBottomNavBar extends StatelessWidget {
     );
   }
 }
+
