@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import '../consts.dart';
 class SectionHeader extends StatelessWidget {
   final String title;
   const SectionHeader({super.key, required this.title});
@@ -17,7 +17,8 @@ class SectionHeader extends StatelessWidget {
           onPressed: () {},
           style: TextButton.styleFrom(
             padding: EdgeInsets.zero,
-            minimumSize: const Size(40, 30),
+            minimumSize:  Size(Responsive.screenWidth(context) * 0.1,
+              Responsive.screenHeight(context) * 0.04,),
             tapTargetSize: MaterialTapTargetSize.shrinkWrap,
           ),
           child: Text(
