@@ -32,9 +32,9 @@ class HomeScreen extends ConsumerWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    SizedBox(height: 30),
+                    SizedBox(height: 25),
                     SectionHeader(title: "Near You"),
-                    SizedBox(height: 14),
+                    SizedBox(height: 20),
                     HorizontalCardList(),
                     SizedBox(height: 30),
                     SectionHeader(title: "Most Visited"),

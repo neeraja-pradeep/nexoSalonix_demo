@@ -1,5 +1,7 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:salonix/consts.dart';
 import 'package:salonix/screens/home_screen.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
@@ -17,7 +19,7 @@ class _SliderScreenState extends ConsumerState<SliderScreen> {
   final List<String> _slideTexts = [
     'Find Barbers And \nSalons Easily in Your \nHands',
     'Book Your Favorite \nBarber and Salon \nQuickly',
-    'Come Be Handsome and \nBeautiful With Us \nRight Now!',
+    'Come Be Handsome \nAnd Beautiful With Us \nRight Now!',
   ];
 
   final List<String> _imagePaths = [
@@ -39,7 +41,6 @@ class _SliderScreenState extends ConsumerState<SliderScreen> {
         curve: Curves.easeInOut,
       );
     } else {
-      // Replace with your actual home screen
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (context) => const HomeScreen()),
@@ -47,81 +48,43 @@ class _SliderScreenState extends ConsumerState<SliderScreen> {
     }
   }
 
-  Widget _buildSlide(String text, String imagePath) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        _buildImage(imagePath),
-        const SizedBox(height: 40),
-        _buildText(text),
-      ],
-    );
-  }
-
-  Widget _buildImage(String path) {
-    return SizedBox(
-      height: MediaQuery.of(context).size.height * 0.6,
-      width: double.infinity,
-      child: Image.asset(path, fit: BoxFit.cover),
-    );
-  }
-
-  Widget _buildText(String text) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 24.0),
-      child: Text(
-        text,
-        textAlign: TextAlign.center,
-        style: const TextStyle(
-          color: Color(0xFF112D4E),
-          fontSize: 32,
-          fontFamily: 'Poppins',
-          fontWeight: FontWeight.w600,
-        ),
-      ),
-    );
-  }
-
   Widget _buildDotIndicator() {
-    return Padding(
-      padding: EdgeInsets.only(
-        bottom: MediaQuery.of(context).size.height * 0.045,
-      ),
-      child: SmoothPageIndicator(
-        controller: _pageController,
-        count: _slideTexts.length,
-        effect: const ExpandingDotsEffect(
-          activeDotColor: Color(0xFF3F72AF),
-          dotColor: Color(0xFFDBE2EF),
-          dotHeight: 6,
-          dotWidth: 6,
-          spacing: 8,
-        ),
+    return SmoothPageIndicator(
+      controller: _pageController,
+      count: _slideTexts.length,
+      effect: const ExpandingDotsEffect(
+        activeDotColor: Color(0xFF3F72AF),
+        dotColor: Color(0xFFDBE2EF),
+        dotHeight: 6,
+        dotWidth: 6,
+        spacing: 8,
       ),
     );
   }
 
   Widget _buildActionButton() {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 30.0),
-      child: ElevatedButton(
+    return Container(
+      width: double.infinity,
+      height: 40,
+      decoration: BoxDecoration(
+        color: const Color(0xFF3F72AF),
+        borderRadius: BorderRadius.circular(40),
+      ),
+      child: TextButton(
         onPressed: _onButtonPressed,
-        style: ElevatedButton.styleFrom(
-          minimumSize: const Size(double.infinity, 45),
-          backgroundColor: const Color(0xFF3F72AF),
+        style: TextButton.styleFrom(
           foregroundColor: Colors.white,
-          elevation: 4,
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(30),
+            borderRadius: BorderRadius.circular(40),
           ),
           textStyle: const TextStyle(
-            fontSize: 16,
+            fontSize: 18,
             fontWeight: FontWeight.w600,
             fontFamily: 'Poppins',
           ),
         ),
         child: Text(
-          _currentPage == _slideTexts.length - 1 ? 'Get Started' : 'Next',
+          _currentPage == _slideTexts.length - 1 ? 'GET STARTED' : 'NEXT',
         ),
       ),
     );
@@ -129,11 +92,17 @@ class _SliderScreenState extends ConsumerState<SliderScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final screenHeight = Responsive.screenHeight(context);
+    final screenWidth = Responsive.screenWidth(context);
+
     return Scaffold(
       backgroundColor: const Color(0xFFF9F7F7),
       body: Column(
         children: [
-          Expanded(
+          // Top 60%: Image PageView
+          SizedBox(
+            height: screenHeight * 0.6,
+            width: double.infinity,
             child: PageView.builder(
               controller: _pageController,
               itemCount: _slideTexts.length,
@@ -142,13 +111,49 @@ class _SliderScreenState extends ConsumerState<SliderScreen> {
                   _currentPage = index;
                 });
               },
-              itemBuilder: (context, index) =>
-                  _buildSlide(_slideTexts[index], _imagePaths[index]),
+              itemBuilder: (context, index) {
+                return Image.asset(_imagePaths[index], fit: BoxFit.cover);
+              },
             ),
           ),
-          _buildDotIndicator(),
-          _buildActionButton(),
-          SizedBox(height: MediaQuery.of(context).size.height * 0.1),
+
+          // Bottom 40%: Text, dots, and button
+          SizedBox(
+            height: screenHeight * 0.4,
+            width: double.infinity,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                const SizedBox(height: 40),
+                AutoSizeText(
+                  _slideTexts[_currentPage],
+                  textAlign: TextAlign.center,
+                  maxLines: 3,
+                  minFontSize: 29,
+                  maxFontSize: 50,
+                  style: TextStyle(
+                    color: const Color(0xFF112D4E),
+                    fontFamily: 'Poppins',
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+            
+                const SizedBox(
+                  height: 5,
+                ), // 🔥 reduced spacing between text and dots
+                _buildDotIndicator(),
+            
+                SizedBox(
+                  height: Responsive.screenHeight(context) * 0.07,
+                ), // spacing between dots and button
+                Padding(
+                  padding:  EdgeInsets.symmetric(horizontal: screenWidth * .07),
+                  child: _buildActionButton(),
+                ),
+                const SizedBox(height: 24), // bottom padding
+              ],
+            ),
+          ),
         ],
       ),
     );

@@ -13,7 +13,7 @@ class LocationHeader extends StatelessWidget {
         children: [
           Row(
             children: const [
-              Icon(Icons.location_on, size: 28, color: Color(0xFF112D4E)),
+              Icon(Icons.location_on, size: 25, color: Color(0xFF112D4E)),
               SizedBox(width: 8),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -23,7 +23,7 @@ class LocationHeader extends StatelessWidget {
                     style: TextStyle(
                       fontFamily: 'Poppins',
                       fontWeight: FontWeight.bold,
-                      fontSize: 18,
+                      fontSize: 16,
                       color: Color(0xFF112D4E),
                     ),
                   ),
@@ -31,7 +31,8 @@ class LocationHeader extends StatelessWidget {
                     'state',
                     style: TextStyle(
                       fontFamily: 'Poppins',
-                      fontSize: 14,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 16,
                       color: Color(0xFF112D4E),
                     ),
                   ),
@@ -39,7 +40,7 @@ class LocationHeader extends StatelessWidget {
               ),
             ],
           ),
-          Icon(LucideIcons.settings, size: 26, color: Color(0xFF112D4E)),
+          Icon(LucideIcons.settings, size: 23, color: Color(0xFF112D4E)),
         ],
       ),
     );

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:salonix/consts.dart';
 
 class HorizontalCardList extends StatelessWidget {
   const HorizontalCardList({super.key});
@@ -11,7 +12,7 @@ class HorizontalCardList extends StatelessWidget {
         scrollDirection: Axis.horizontal,
         itemCount: 6,
         itemBuilder: (context, index) => Padding(
-          padding: const EdgeInsets.only(right: 16),
+          padding: const EdgeInsets.only(right: 30),
           child: SizedBox(
             width: 225,
             child: Column(
@@ -54,26 +55,20 @@ class HorizontalCardList extends StatelessWidget {
                 ),
                 const SizedBox(height: 10),
                 Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Column(
-                      children: [
-                        const Text(
-                          "Shop Name",
-                          style: TextStyle(
-                            fontWeight: FontWeight.w600,
-                            fontSize: 18,
-                            fontFamily: 'Poppins',
-                            color: Color(0xFF112D4E),
-                          ),
-                        ),
-                      ],
+                    Text(
+                      "Shop Name",
+                      style: TextStyle(
+                        fontWeight: FontWeight.w600,
+                        fontSize: 15,
+                        fontFamily: 'Poppins',
+                        color: Color(0xFF112D4E),
+                      ),
                     ),
-
-                    const SizedBox(height: 4, width: 98),
                     Row(
                       children: const [
                         Icon(Icons.star, color: Colors.amber, size: 16),
-                        SizedBox(width: 4),
                         Text(
                           "4.5",
                           style: TextStyle(
@@ -87,10 +82,11 @@ class HorizontalCardList extends StatelessWidget {
                     ),
                   ],
                 ),
+              
                 const Text(
                   "Address",
                   style: TextStyle(
-                    fontSize: 15,
+                    fontSize: 13,
                     fontWeight: FontWeight.w500,
                     color: Color(0xFF112D4E),
                     fontFamily: 'Poppins',

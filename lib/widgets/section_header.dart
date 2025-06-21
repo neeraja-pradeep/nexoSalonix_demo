@@ -12,7 +12,7 @@ class SectionHeader extends StatelessWidget {
         Text(
           title,
           style: const TextStyle(
-            fontSize: 30,
+            fontSize: 27,
             fontWeight: FontWeight.w700,
             fontFamily: 'Poppins',
             color: Color(0xFF112D4E),
