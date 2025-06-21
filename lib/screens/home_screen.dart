@@ -6,12 +6,16 @@ import '../widgets/search_bar.dart' as custom_widgets;
 import '../widgets/section_header.dart';
 import '../widgets/horizontal_card_list.dart';
 import '../widgets/bottom_nav_bar.dart';
+import '../consts.dart';
 
 class HomeScreen extends ConsumerWidget {
   const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final screenHeight = Responsive.screenHeight(context);
+    final screenWidth = Responsive.screenWidth(context);
+
     return Scaffold(
       backgroundColor: const Color(0xFFF9F7F7),
       body: SafeArea(
@@ -23,24 +27,24 @@ class HomeScreen extends ConsumerWidget {
               backgroundColor: const Color(0xFFF9F7F7),
               pinned: true,
               elevation: 0,
-              toolbarHeight: 70,
+              toolbarHeight: screenHeight * 0.085,
               flexibleSpace: custom_widgets.SearchBar(),
             ),
             const SliverToBoxAdapter(
               child: Padding(
-                padding: EdgeInsets.symmetric(horizontal: 18),
+                padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.045),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    SizedBox(height: 25),
+                    SizedBox(height: screenHeight * 0.03),
                     SectionHeader(title: "Near You"),
-                    SizedBox(height: 20),
+                    SizedBox(height: screenHeight * 0.024),
                     HorizontalCardList(),
-                    SizedBox(height: 30),
+                    SizedBox(height: screenHeight * 0.035),
                     SectionHeader(title: "Most Visited"),
-                    SizedBox(height: 14),
+                    SizedBox(height: screenHeight * 0.017),
                     HorizontalCardList(),
-                    SizedBox(height: 20),
+                    SizedBox(height: screenHeight * 0.024),
                   ],
                 ),
               ),
