@@ -9,7 +9,8 @@ class HorizontalCardList extends StatelessWidget {
     final screenWidth = MediaQuery.of(context).size.width;
     final cardWidth = screenWidth * 0.55;
     final imageSize = cardWidth;
-    final cardHeight = cardWidth + screenWidth * 0.15;
+    // Extra space below the image prevents overflow on smaller screens.
+    final cardHeight = cardWidth + screenWidth * 0.17;
     final spacing = screenWidth * 0.03;
     final smallPadding = screenWidth * 0.02;
 
