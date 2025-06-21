@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:salonix/screens/splash_screen.dart';
+import 'package:salonix/consts.dart';
 
 void main() {
   runApp(const ProviderScope(child: MyApp()));
@@ -19,22 +20,24 @@ class MyApp extends StatelessWidget {
         seedColor: const Color(0xFF3F72AF),
         background: const Color(0xFFF9F7F7),
       ),
-      textTheme: const TextTheme(
+      textTheme: TextTheme(
         headlineSmall: TextStyle(
-          fontSize: 27,
+          fontSize: Responsive.fontSize(context, 0.21),
           fontWeight: FontWeight.w700,
-          color: Color(0xFF112D4E),
+          color: const Color(0xFF112D4E),
         ),
         titleMedium: TextStyle(
-          fontSize: 16,
+          fontSize: Responsive.fontSize(context, 0.13),
           fontWeight: FontWeight.w600,
-          color: Color(0xFF112D4E),
+          color: const Color(0xFF112D4E),
         ),
         bodyMedium: TextStyle(
-          fontSize: 15,
-          color: Color(0xFF112D4E),
+          fontSize: Responsive.fontSize(context, 0.12),
+          color: const Color(0xFF112D4E),
         ),
-        labelSmall: TextStyle(fontSize: 10),
+        labelSmall: TextStyle(
+          fontSize: Responsive.fontSize(context, 0.077),
+        ),
       ),
     );
 
