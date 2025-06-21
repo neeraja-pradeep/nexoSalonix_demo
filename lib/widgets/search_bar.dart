@@ -9,7 +9,7 @@ class SearchBar extends StatelessWidget {
     final screenHeight = MediaQuery.of(context).size.height;
 
     final horizontalPadding = screenWidth * 0.05;
-    final verticalPadding = screenHeight * 0.015;
+    final verticalPadding = screenHeight * 0.019;
     final iconSize = screenWidth * 0.07;
 
     return Padding(
@@ -37,11 +37,11 @@ class SearchBar extends StatelessWidget {
           style: Theme.of(context).textTheme.bodyMedium,
           decoration: InputDecoration(
             border: InputBorder.none,
-            icon: Icon(Icons.search,
-                size: iconSize, color: const Color(0xFF3F72AF)),
-            hintText: "Search...",
-            hintStyle:
-                Theme.of(context).textTheme.bodyMedium,
+            icon: Icon(
+              Icons.search,
+              size: iconSize,
+              color: const Color(0xFF3F72AF),),
+            
           ),
         ),
       ),
