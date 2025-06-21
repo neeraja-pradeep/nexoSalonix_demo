@@ -21,13 +21,14 @@ class SearchBar extends StatelessWidget {
             ),
           ],
         ),
-        child: const TextField(
-          style: TextStyle(fontSize: 16, fontFamily: 'Poppins'),
+        child: TextField(
+          style: Theme.of(context).textTheme.bodyMedium,
           decoration: InputDecoration(
             border: InputBorder.none,
-            icon: Icon(Icons.search, size: 26, color: Color(0xFF3F72AF)),
+            icon: const Icon(Icons.search, size: 26, color: Color(0xFF3F72AF)),
             hintText: "Search...",
-            hintStyle: TextStyle(fontFamily: 'Poppins', fontSize: 16),
+            hintStyle:
+                Theme.of(context).textTheme.bodyMedium,
           ),
         ),
       ),

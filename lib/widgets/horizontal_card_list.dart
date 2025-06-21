@@ -6,15 +6,19 @@ class HorizontalCardList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+    final cardWidth = screenWidth * 0.55;
+    final imageSize = cardWidth;
+
     return SizedBox(
-      height: 280,
+      height: cardWidth + 55,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         itemCount: 6,
         itemBuilder: (context, index) => Padding(
-          padding: const EdgeInsets.only(right: 30),
+          padding: EdgeInsets.only(right: screenWidth * 0.07),
           child: SizedBox(
-            width: 225,
+            width: cardWidth,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -24,8 +28,8 @@ class HorizontalCardList extends StatelessWidget {
                       borderRadius: BorderRadius.circular(18),
                       child: Image(
                         image: AssetImage('assets/saloon.png'),
-                        height: 225,
-                        width: 225,
+                        height: imageSize,
+                        width: imageSize,
                         fit: BoxFit.cover,
                       ),
                     ),

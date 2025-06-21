@@ -11,12 +11,7 @@ class SectionHeader extends StatelessWidget {
       children: [
         Text(
           title,
-          style: const TextStyle(
-            fontSize: 27,
-            fontWeight: FontWeight.w700,
-            fontFamily: 'Poppins',
-            color: Color(0xFF112D4E),
-          ),
+          style: Theme.of(context).textTheme.headlineSmall,
         ),
         TextButton(
           onPressed: () {},
@@ -25,14 +20,11 @@ class SectionHeader extends StatelessWidget {
             minimumSize: const Size(40, 30),
             tapTargetSize: MaterialTapTargetSize.shrinkWrap,
           ),
-          child: const Text(
+          child: Text(
             "see all",
-            style: TextStyle(
-              fontSize: 15,
-              fontWeight: FontWeight.w500,
-              fontFamily: 'Poppins',
-              color: Colors.grey,
-            ),
+            style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                  color: Colors.grey,
+                ),
           ),
         ),
       ],

@@ -12,35 +12,31 @@ class LocationHeader extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Row(
-            children: const [
-              Icon(Icons.location_on, size: 25, color: Color(0xFF112D4E)),
-              SizedBox(width: 8),
+            children: [
+              const Icon(Icons.location_on, size: 25, color: Color(0xFF112D4E)),
+              const SizedBox(width: 8),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
                     'location,',
-                    style: TextStyle(
-                      fontFamily: 'Poppins',
-                      fontWeight: FontWeight.bold,
-                      fontSize: 16,
-                      color: Color(0xFF112D4E),
-                    ),
+                    style:
+                        Theme.of(context).textTheme.titleMedium?.copyWith(
+                              fontWeight: FontWeight.bold,
+                            ),
                   ),
                   Text(
                     'state',
-                    style: TextStyle(
-                      fontFamily: 'Poppins',
-                      fontWeight: FontWeight.bold,
-                      fontSize: 16,
-                      color: Color(0xFF112D4E),
-                    ),
+                    style:
+                        Theme.of(context).textTheme.titleMedium?.copyWith(
+                              fontWeight: FontWeight.bold,
+                            ),
                   ),
                 ],
               ),
             ],
           ),
-          Icon(LucideIcons.settings, size: 23, color: Color(0xFF112D4E)),
+          const Icon(LucideIcons.settings, size: 23, color: Color(0xFF112D4E)),
         ],
       ),
     );

@@ -97,8 +97,9 @@ class _SliderScreenState extends ConsumerState<SliderScreen> {
 
     return Scaffold(
       backgroundColor: const Color(0xFFF9F7F7),
-      body: Column(
-        children: [
+      body: SafeArea(
+        child: Column(
+          children: [
           // Top 60%: Image PageView
           SizedBox(
             height: screenHeight * 0.6,
@@ -155,6 +156,7 @@ class _SliderScreenState extends ConsumerState<SliderScreen> {
             ),
           ),
         ],
+        ),
       ),
     );
   }
