@@ -62,10 +62,11 @@ class _SliderScreenState extends ConsumerState<SliderScreen> {
     );
   }
 
-  Widget _buildActionButton() {
+  Widget _buildActionButton(BuildContext context) {
+    final buttonHeight = Responsive.screenHeight(context) * 0.06;
     return Container(
       width: double.infinity,
-      height: 40,
+      height: buttonHeight,
       decoration: BoxDecoration(
         color: const Color(0xFF3F72AF),
         borderRadius: BorderRadius.circular(40),
@@ -94,6 +95,7 @@ class _SliderScreenState extends ConsumerState<SliderScreen> {
   Widget build(BuildContext context) {
     final screenHeight = Responsive.screenHeight(context);
     final screenWidth = Responsive.screenWidth(context);
+    final textScale = MediaQuery.of(context).textScaleFactor;
 
     return Scaffold(
       backgroundColor: const Color(0xFFF9F7F7),
@@ -130,8 +132,8 @@ class _SliderScreenState extends ConsumerState<SliderScreen> {
                   _slideTexts[_currentPage],
                   textAlign: TextAlign.center,
                   maxLines: 3,
-                  minFontSize: 29,
-                  maxFontSize: 50,
+                  minFontSize: screenHeight * 0.035 * textScale,
+                  maxFontSize: screenHeight * 0.06 * textScale,
                   style: TextStyle(
                     color: const Color(0xFF112D4E),
                     fontFamily: 'Poppins',
@@ -149,7 +151,7 @@ class _SliderScreenState extends ConsumerState<SliderScreen> {
                 ), // spacing between dots and button
                 Padding(
                   padding:  EdgeInsets.symmetric(horizontal: screenWidth * .07),
-                  child: _buildActionButton(),
+                  child: _buildActionButton(context),
                 ),
                 const SizedBox(height: 24), // bottom padding
               ],
