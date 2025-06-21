@@ -78,11 +78,9 @@ class _SliderScreenState extends ConsumerState<SliderScreen> {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(40),
           ),
-          textStyle:  TextStyle(
-            fontSize: Responsive.fontSize(context, 0.12),
-            fontWeight: FontWeight.w600,
-            fontFamily: 'Poppins',
-          ),
+          textStyle: Theme.of(context).textTheme.titleMedium!.copyWith(
+                fontSize: Responsive.fontSize(context, 0.12),
+              ),
         ),
         child: Text(
           _currentPage == _slideTexts.length - 1 ? 'GET STARTED' : 'NEXT',
@@ -135,12 +133,10 @@ class _SliderScreenState extends ConsumerState<SliderScreen> {
                   maxLines: 3,
                   minFontSize: (screenHeight * 0.035 * textScale).roundToDouble(),
                   maxFontSize: (screenHeight * 0.06 * textScale).roundToDouble(),
-                  stepGranularity: 0.1,   
-                  style: TextStyle(
-                    color: const Color(0xFF112D4E),
-                    fontFamily: 'Poppins',
-                    fontWeight: FontWeight.w600,
-                  ),
+                                    stepGranularity: 0.1,
+                  style: Theme.of(context).textTheme.headlineSmall!.copyWith(
+                        fontWeight: FontWeight.w600,
+                      ),
                 ),
             
                  SizedBox(
