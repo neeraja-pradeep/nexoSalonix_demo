@@ -93,9 +93,11 @@ class _SliderScreenState extends ConsumerState<SliderScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final screenHeight = Responsive.screenHeight(context);
+    final mediaQuery = MediaQuery.of(context);
+    final screenHeight =
+        Responsive.screenHeight(context) - mediaQuery.padding.vertical;
     final screenWidth = Responsive.screenWidth(context);
-    final textScale = MediaQuery.of(context).textScaleFactor;
+    final textScale = mediaQuery.textScaleFactor;
 
     return Scaffold(
       backgroundColor: const Color(0xFFF9F7F7),
@@ -133,8 +135,12 @@ class _SliderScreenState extends ConsumerState<SliderScreen> {
                   textAlign: TextAlign.center,
                   maxLines: 3,
                   minFontSize: (screenHeight * 0.035 * textScale).roundToDouble(),
-                  maxFontSize: screenHeight * 0.06 * textScale
+
+                  maxFontSize: screenHeight * 0.06 * textScale,
+
+         
                   stepGranularity: 0.1,
+
                   style: TextStyle(
                     color: const Color(0xFF112D4E),
                     fontFamily: 'Poppins',
@@ -148,7 +154,7 @@ class _SliderScreenState extends ConsumerState<SliderScreen> {
                 _buildDotIndicator(),
             
                 SizedBox(
-                  height: Responsive.screenHeight(context) * 0.07,
+                  height: screenHeight * 0.07,
                 ), // spacing between dots and button
                 Padding(
                   padding:  EdgeInsets.symmetric(horizontal: screenWidth * .07),
