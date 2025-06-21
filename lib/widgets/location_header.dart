@@ -2,15 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:lucide_icons/lucide_icons.dart';
 import '../consts.dart';
 class LocationHeader extends StatelessWidget {
-  const LocationHeader({super.key});
+  const LocationHeader({super.key,});
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding:  EdgeInsets.fromLTRB(Responsive.screenWidth(context) * 0.045,
-        Responsive.screenHeight(context) * 0.02,
-        Responsive.screenWidth(context) * 0.045,
-        Responsive.screenHeight(context) * 0.01,),
+        Responsive.screenHeight(context) * 0.03,
+        Responsive.screenWidth(context) * 0.044,
+        Responsive.screenHeight(context) * 0.002,),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -19,7 +19,7 @@ class LocationHeader extends StatelessWidget {
                Icon(Icons.location_on,
                   size: Responsive.iconSize(context),
                   color: const Color(0xFF112D4E)),
-              const SizedBox(width: 8),
+              const SizedBox(width: 6),
                Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
