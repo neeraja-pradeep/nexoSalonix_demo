@@ -9,7 +9,6 @@ class HorizontalCardList extends StatelessWidget {
     final screenWidth = MediaQuery.of(context).size.width;
     final cardWidth = screenWidth * 0.55;
     final imageSize = cardWidth;
-    // Extra space below the image prevents overflow on smaller screens.
     final cardHeight = cardWidth + screenWidth * 0.17;
     final spacing = screenWidth * 0.03;
     final smallPadding = screenWidth * 0.02;
@@ -51,11 +50,10 @@ class HorizontalCardList extends StatelessWidget {
                         ),
                         child: Text(
                           "1.2km",
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: Responsive.fontSize(context, 0.1),
-                            fontFamily: 'Poppins',
-                          ),
+                          style: Theme.of(context).textTheme.labelSmall!.copyWith(
+                                color: Colors.white,
+                                fontSize: Responsive.fontSize(context, 0.1),
+                              ),
                         ),
                       ),
                     ),
@@ -67,12 +65,9 @@ class HorizontalCardList extends StatelessWidget {
                   children: [
                     Text(
                       "Shop Name",
-                      style: TextStyle(
-                        fontWeight: FontWeight.w600,
-                        fontSize: Responsive.fontSize(context, 0.125),
-                        fontFamily: 'Poppins',
-                        color: Color(0xFF112D4E),
-                      ),
+                      style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                            fontSize: Responsive.fontSize(context, 0.125),
+                          ),
                     ),
                     Row(
                       children: [
@@ -83,12 +78,10 @@ class HorizontalCardList extends StatelessWidget {
                         ),
                         Text(
                           "4.5",
-                          style: TextStyle(
-                            fontSize: Responsive.fontSize(context, 0.11),
-                            fontWeight: FontWeight.w500,
-                            color: Color(0xFF112D4E),
-                            fontFamily: 'Poppins',
-                          ),
+                          style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                                fontSize: Responsive.fontSize(context, 0.11),
+                                fontWeight: FontWeight.w500,
+                              ),
                         ),
                       ],
                     ),
@@ -97,12 +90,10 @@ class HorizontalCardList extends StatelessWidget {
               
                 Text(
                   "Address",
-                  style: TextStyle(
-                    fontSize: Responsive.fontSize(context, 0.11),
-                    fontWeight: FontWeight.w500,
-                    color: Color(0xFF112D4E),
-                    fontFamily: 'Poppins',
-                  ),
+                  style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                        fontSize: Responsive.fontSize(context, 0.11),
+                        fontWeight: FontWeight.w500,
+                      ),
                 ),
               ],
             ),
