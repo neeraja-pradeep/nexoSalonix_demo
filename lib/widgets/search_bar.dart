@@ -5,10 +5,22 @@ class SearchBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+    final screenHeight = MediaQuery.of(context).size.height;
+
+    final horizontalPadding = screenWidth * 0.05;
+    final verticalPadding = screenHeight * 0.015;
+    final iconSize = screenWidth * 0.07;
+
     return Padding(
-      padding: const EdgeInsets.fromLTRB(18, 10, 18, 10),
+      padding: EdgeInsets.fromLTRB(
+        horizontalPadding,
+        verticalPadding,
+        horizontalPadding,
+        verticalPadding,
+      ),
       child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 18),
+        padding: EdgeInsets.symmetric(horizontal: horizontalPadding),
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(30),
@@ -25,7 +37,8 @@ class SearchBar extends StatelessWidget {
           style: Theme.of(context).textTheme.bodyMedium,
           decoration: InputDecoration(
             border: InputBorder.none,
-            icon: const Icon(Icons.search, size: 26, color: Color(0xFF3F72AF)),
+            icon: Icon(Icons.search,
+                size: iconSize, color: const Color(0xFF3F72AF)),
             hintText: "Search...",
             hintStyle:
                 Theme.of(context).textTheme.bodyMedium,
