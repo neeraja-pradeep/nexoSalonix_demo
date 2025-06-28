@@ -100,4 +100,3 @@ class CustomBottomNavBar extends StatelessWidget {
     );
   }
 }
-
